@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@source not "../../README.md";
+@source not "../../TESTING.md";
 
 @theme {
   --color-peach: #f4c7b5;
