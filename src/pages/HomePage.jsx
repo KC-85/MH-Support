@@ -1,4 +1,6 @@
 import ArrowIcon from '../components/ArrowIcon.jsx'
+import { Link } from 'react-router-dom'
+
 import supportPathways from '../data/supportPathways.js'
 import ukHealthServices from '../data/ukHealthServices.js'
 
@@ -41,7 +43,8 @@ function ReminderPanel() {
 
 function HomePage() {
   return (
-    <main id="main-content">
+    <main id="main-content" tabIndex="-1" className="focus:outline-none">
+      <title>MH Support | UK Mental Health Information and Guidance</title>
       <section
         className="px-5 pb-20 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:pb-28 lg:pt-24"
         aria-labelledby="hero-heading"
@@ -69,13 +72,13 @@ function HomePage() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href="#approach"
+              <Link
+                to="/resources"
                 className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-ink px-7 font-semibold text-cream shadow-[0_12px_30px_-16px_rgba(43,31,38,0.8)] transition-transform hover:-translate-y-0.5 hover:bg-plum focus:outline-rust"
               >
                 Find your next step
                 <ArrowIcon />
-              </a>
+              </Link>
               <a
                 href="#about"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-ink/60 px-7 font-semibold hover:bg-peach-soft hover:underline hover:decoration-2 hover:underline-offset-4"

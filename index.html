@@ -16,6 +16,24 @@
       content="Clear, compassionate and UK-focused mental health information in a calm, accessible space."
     />
 
+    <script>
+      const locationData = window.location
+
+      if (locationData.search.startsWith('?/')) {
+        const route = locationData.search
+          .slice(1)
+          .split('&')
+          .map((segment) => segment.replace(/~and~/g, '&'))
+          .join('?')
+
+        window.history.replaceState(
+          null,
+          '',
+          `${locationData.pathname.slice(0, -1)}${route}${locationData.hash}`,
+        )
+      }
+    </script>
+
     <title>MH Support | Mental Health Information and Guidance</title>
   </head>
   <body>
