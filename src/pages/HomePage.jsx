@@ -1,5 +1,6 @@
 import ArrowIcon from '../components/ArrowIcon.jsx'
 import supportPathways from '../data/supportPathways.js'
+import ukHealthServices from '../data/ukHealthServices.js'
 
 function ReminderPanel() {
   return (
@@ -218,17 +219,33 @@ function HomePage() {
                 are not sent towards advice that does not apply to them.
               </p>
 
-              <ul className="mt-9 grid grid-cols-2 gap-3" aria-label="UK nations covered">
-                {['England', 'Scotland', 'Wales', 'Northern Ireland'].map(
-                  (nation) => (
-                    <li
-                      className="rounded-full border border-cream/35 bg-cream/10 px-4 py-3 text-center text-sm font-semibold"
-                      key={nation}
+              <ul
+                className="mt-9 grid gap-3 sm:grid-cols-2"
+                aria-label="Official mental health information across the UK"
+              >
+                {ukHealthServices.map((service) => (
+                  <li key={service.nation}>
+                    <a
+                      href={service.href}
+                      className="group flex min-h-20 items-center justify-between gap-4 rounded-2xl border border-cream/35 bg-cream/10 px-5 py-4 hover:bg-cream/20 hover:underline hover:decoration-2 hover:underline-offset-4 focus:outline-cream"
                     >
-                      {nation}
-                    </li>
-                  ),
-                )}
+                      <span>
+                        <span className="block font-semibold">
+                          {service.nation}
+                        </span>
+                        <span className="mt-1 block text-sm text-cream/75">
+                          {service.provider}
+                        </span>
+                      </span>
+                      <span
+                        className="text-xl transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      >
+                        ↗
+                      </span>
+                    </a>
+                  </li>
+                ))}
               </ul>
             </article>
           </div>
