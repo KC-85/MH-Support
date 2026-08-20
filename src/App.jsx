@@ -1,6 +1,12 @@
+import { Route, Routes } from 'react-router-dom'
+
 import Footer from './components/Footer.jsx'
 import Header from './components/Header.jsx'
+import RouteFocus from './components/RouteFocus.jsx'
 import HomePage from './pages/HomePage.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
+import ResourcesPage from './pages/ResourcesPage.jsx'
+import UrgentSupportPage from './pages/UrgentSupportPage.jsx'
 
 function App() {
   return (
@@ -13,7 +19,13 @@ function App() {
       </a>
 
       <Header />
-      <HomePage />
+      <RouteFocus />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/urgent-support" element={<UrgentSupportPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
       <Footer />
     </div>
   )
